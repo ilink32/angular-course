@@ -17,8 +17,10 @@ function Rectangle() {
 }
 
 // subclass extends superclass
+console.log(Rectangle.prototype);
 Rectangle.prototype = Object.create(Shape.prototype);
-Rectangle.prototype.constructor = Rectangle;
+console.log(Rectangle.prototype);
+//Rectangle.prototype.constructor = Rectangle;
 
 var rect = new Rectangle();
 

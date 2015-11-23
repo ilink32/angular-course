@@ -40,4 +40,8 @@ app.controller('ProfileController', function ($scope) {
     },
   ]
 
-});
+}).filter('showName', function() {
+        return function(nickName, name) {
+            return nickName+' '+ (name.split(' ')[0]);
+        }
+    });;

@@ -1,15 +1,16 @@
-<html lang="en">
+<html lang="en" ng-app>
 <head>
 	<title>Data Binding</title>
 	<link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="main.css" rel="stylesheet">
 </head>
+
 <body>
 
-  <div class="container">
-    Hello Chalermpone Test :  {{ name }}
+  <div class="container" ng-init="name = 'Chalermpone'">
+    Hello :  {{ name }}
   </div>
 
-  <script src="../libs/angular/angular.min.js" ></script>
+	<script src="../libs/angular/angular.min.js" ></script>  
 </body>
 </html>
