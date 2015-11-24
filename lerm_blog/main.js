@@ -18,6 +18,10 @@ app.controller('BlogLermController', function ($scope){
 		$scope.title = "";
 		$scope.content = "";
 	}
+
+	$scope.openFormPost = function(){
+		console.log("5555");
+	}
 }).filter('limitWord',function(){
 	return function(input) {
         var msg = input;

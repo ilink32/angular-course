@@ -16,10 +16,20 @@ angular.module('myApp',[])
 
         return deferred.promise;
      }
+  })
+  .service('blogService3', function($http){
+    this.getAllPosts = function(){
+      return 
+        $http.get("http://localhost:4000/blogs")
+          .then(function(resp){
+              return resp.data;
+          });
+    }
+
   });
 
 angular.module('myApp').controller('TestController',
-  function($scope, blogService, blogService2) {
+  function($scope, blogService, blogService2, blogService3) {
     $scope.getData = function(){
       blogService.getAllPosts().success(function(data,status,config, headers) {
         $scope.data = data;

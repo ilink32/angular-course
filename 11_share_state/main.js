@@ -1,15 +1,18 @@
 var app = angular.module('myApp', []);
 
-app.controller('ProfileListController', function ($scope, profileService) {
+app.controller('ProfileListController', function ($scope, $rootScope, profileService) {
 	$scope.profiles = profileService.profiles;
-
+  
 	$scope.edit = function(selectedProfile) {
-		profileService.selectedProfile = selectedProfile;
+		$rootScope.$broadcast('Update',selectedProfile);
 	}
 });
 
-app.controller('ProfileDetailController', function ($scope, profileService) {
-	$scope.profileService = profileService;
+app.controller('ProfileDetailController', function ($scope, $rootScope) {
+	$scope.$on('Update', function (event, selectedProfile) {
+      console.log(4);
+      $scope.selectedProfile = selectedProfile;
+  });  
 });
 
 app.service('profileService', function() {

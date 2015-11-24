@@ -1,9 +1,12 @@
 
 var app = angular.module('myApp', []);
 
-angular.module('myApp').controller('TestController', function(helloService1){
-  helloService1.sayHello('AngularJS');
+angular.module('myApp').controller('TestController', function(helloService1,Blog,greet, $scope){
+  // $scope.blog = new Blog(1);
+  // $scope.blog.loadContent();
 
+  $scope.blog = new Blog(2);
+  $scope.blog.loadContent();
 });
 
 // ================= service =================
@@ -16,15 +19,12 @@ angular.module('myApp').service('helloService1',function($timeout){
 });
 
 // ================= factory =================
-angular.module('myApp').factory('helloService2',function(){
-  return {
-    sayHello: function(name){
-      console.log('Hello '+name+', from factory');
-    },
-    echo: function(message){
-      alert(message);
+angular.module('myApp').factory('Blog',function(){
+  return function Blog(id){
+    this.loadContent = function(){
+      console.log(id)
     }
-	}
+  }
 });
 
 // ================= provider =================
