@@ -1,0 +1,17 @@
+
+	<div class="table-responsive">
+		<table class="table table-striped table-bordered" ng-show="DataPostList.length > 0">
+			<tr>
+				<th align="center">Title</th>
+				<th>Content</th>
+				<th>Auther</th>
+				<th>Postdate</th>
+			</tr>
+			<tr ng-repeat="postList in DataPostList | orderBy:'-postDate' | limitTo:5" >
+				<td>{{ postList.title }}</td>
+				<td>{{ postList.content | limitWord}}</td>
+				<td>{{ postList.auther }}</td>
+				<td>{{ postList.postDate | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+			</tr>
+		</table>
+	</div>
